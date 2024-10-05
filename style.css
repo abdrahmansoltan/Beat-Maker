@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+}
+
+i,
+svg {
+  /* Disable pointer events to make the icon non-clickable and prevent event bubbling */
+  pointer-events: none;
+}
+
+button {
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.kick-pad,
+.snare-pad,
+.hihat-pad {
+  width: 5rem;
+  height: 5rem;
+  margin: 1rem 0.5rem;
+  cursor: pointer;
+}
+
+.kick-pad {
+  background-color: #73a0e4;
+}
+
+.snare-pad {
+  background-color: #f895c3;
+}
+
+.hihat-pad {
+  background-color: #f69772;
+}
+
+.kick-pad.active {
+  transform: scale(1.1);
+  background-color: #346ba6;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+}
+
+.snare-pad.active {
+  transform: scale(1.1);
+  background-color: #f3578d;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+}
+
+.hihat-pad.active {
+  transform: scale(1.1);
+  background-color: #ee6630;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+}
+
+.sequencer {
+  /* Center the sequencer in the middle of the screen */
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.kick-track,
+.snare-track,
+.hihat-track {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  justify-content: space-between;
+  margin-bottom: 5rem;
+}
+
+.kick,
+.snare,
+.hihat {
+  display: flex;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  margin: 0 2rem;
+}
+
+.controls button {
+  background-color: #868080;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.pad {
+  transition: all 0.5s ease;
+}
+
+.play {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background-color: #868080;
+  color: white;
+  border: none;
+}
+
+select {
+  padding: 1rem;
+  font-size: 1rem;
+}

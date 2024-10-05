@@ -4,8 +4,10 @@ class DrumKit {
     this.kickAudio = document.querySelector('.kick-sound');
     this.snareAudio = document.querySelector('.snare-sound');
     this.hihatAudio = document.querySelector('.hihat-sound');
+    this.playBtn = document.querySelector('.play');
     this.index = 0; // index for the beat
     this.bpm = 150; // beats per minute
+    this.isPlaying = null;
     this.playBtn = document.querySelector('.play');
 
     this.initiateEvents();
@@ -56,10 +58,28 @@ class DrumKit {
 
   start() {
     const interval = (60 / this.bpm) * 1000;
-    // Use arrow function to prevent 'this' from pointing to the window object
-    setInterval(() => {
-      this.repeat();
-    }, interval);
+    // check if it's playing
+    if (this.isPlaying) {
+      clearInterval(this.isPlaying);
+      this.isPlaying = null;
+    } else {
+      this.isPlaying = setInterval(() => {
+        // Use arrow function to prevent 'this' from pointing to the window object
+        this.repeat();
+      }, interval);
+    }
+
+    this.updateBtn();
+  }
+
+  updateBtn() {
+    if (this.isPlaying) {
+      this.playBtn.innerText = 'Stop';
+      this.playBtn.classList.add('active');
+    } else {
+      this.playBtn.innerText = 'Play';
+      this.playBtn.classList.remove('active');
+    }
   }
 }
 

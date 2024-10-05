@@ -116,6 +116,12 @@ select {
   font-size: 1rem;
 }
 
+.active {
+  background-color: #f5f5f5;
+  color: #868080;
+  outline: 1px solid #868080;
+}
+
 @keyframes playTrack {
   0% {
     transform: scale(1);

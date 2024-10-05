@@ -94,10 +94,21 @@
 
       <!-- Play Button -->
       <button class="play">Play</button>
-      <audio src="./sounds/kick-classic.wav" class="kick-sound"></audio>
-      <audio src="./sounds/snare-acoustic01.wav" class="snare-sound"></audio>
-      <audio src="./sounds/hihat-acoustic01.wav" class="hihat-sound"></audio>
+
+      <!-- Tempo -->
+      <div class="tempo">
+        <input type="range" class="tempo-slider" min="20" max="300" value="150" />
+        <p>
+          Tempo:
+          <span class="tempo-number">150</span>
+        </p>
+      </div>
     </div>
+
+    <!-- Audio Files -->
+    <audio src="./sounds/kick-classic.wav" class="kick-sound"></audio>
+    <audio src="./sounds/snare-acoustic01.wav" class="snare-sound"></audio>
+    <audio src="./sounds/hihat-acoustic01.wav" class="hihat-sound"></audio>
 
     <script src="app.js"></script>
   </body>

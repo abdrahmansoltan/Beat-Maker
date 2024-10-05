@@ -6,6 +6,7 @@ class DrumKit {
     this.hihatAudio = document.querySelector('.hihat-sound');
     this.playBtn = document.querySelector('.play');
     this.selects = document.querySelectorAll('select');
+    this.muteBtns = document.querySelectorAll('.mute');
     this.index = 0; // index for the beat
     this.bpm = 150; // beats per minute
     this.isPlaying = null;
@@ -31,6 +32,12 @@ class DrumKit {
     this.selects.forEach(select => {
       select.addEventListener('change', e => {
         this.changeSound(e);
+      });
+    });
+
+    this.muteBtns.forEach(btn => {
+      btn.addEventListener('click', e => {
+        this.mute(e);
       });
     });
   }
@@ -105,6 +112,42 @@ class DrumKit {
       case 'hihat-select':
         this.hihatAudio.src = selectionValue;
         break;
+    }
+  }
+
+  mute(e) {
+    const muteIndex = e.target.getAttribute('data-track');
+    e.target.classList.toggle('active');
+    const isActive = e.target.classList.contains('active');
+    e.target.querySelector('i').classList = isActive
+      ? 'fas fa-solid fa-volume-high'
+      : 'fa-solid fa-volume-xmark';
+
+    if (e.target.classList.contains('active')) {
+      // mute the selected track
+      switch (muteIndex) {
+        case '0':
+          this.kickAudio.volume = 0;
+          break;
+        case '1':
+          this.snareAudio.volume = 0;
+          break;
+        case '2':
+          this.hihatAudio.volume = 0;
+          break;
+      }
+    } else {
+      switch (muteIndex) {
+        case '0':
+          this.kickAudio.volume = 1;
+          break;
+        case '1':
+          this.snareAudio.volume = 1;
+          break;
+        case '2':
+          this.hihatAudio.volume = 1;
+          break;
+      }
     }
   }
 }

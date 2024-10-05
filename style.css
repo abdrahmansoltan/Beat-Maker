@@ -122,6 +122,11 @@ select {
   outline: 1px solid #868080;
 }
 
+.mute.active {
+  background-color: #bbb7b7;
+  outline: none;
+}
+
 @keyframes playTrack {
   0% {
     transform: scale(1);
